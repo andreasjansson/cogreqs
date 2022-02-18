@@ -18,6 +18,7 @@ def apply_heuristics(config: Config) -> Config:
         ("music21", transform_music21),
         ("pydiffvg", transform_pydiffvg),
         ("detectron2", transform_detectron2),
+        ("pesq", transform_pesq),
     ]
     for package_name, transform in python_package_transforms:
         for package in config.build.python_packages:
@@ -103,4 +104,15 @@ def transform_detectron2(config: Config, package: PythonPackage):
     # enforce that?
     config.build.run += [
         "pip install detectron2 -f https://dl.fbaipublicfiles.com/detectron2/wheels/cu101/torch1.8/index.html"
+    ]
+
+
+def transform_pesq(config: Config, package: PythonPackage):
+    """
+    pesq requires numpy at install time so needs to be installed
+    separately.
+    """
+    config.build.python_packages.remove(package)
+    config.build.run += [
+        f"pip install pesq=={package.version}",
     ]
