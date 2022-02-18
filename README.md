@@ -48,7 +48,7 @@ build:
 
 **NOTE:** Cogreqs outputs a predict.py that's only compatible with the `future` branch of Cog. Until that branch is merged into main, install Cog from https://github.com/replicate/cog/releases/tag/v0.1.0-alpha
 
-You can also output the genreated cog.yaml contents to stdout:
+You can also output the generated cog.yaml contents to stdout:
 
 ```
 $ cogreqs --config-path=- --predict-path=/dev/null .
