@@ -134,6 +134,7 @@ Reference: https://github.com/replicate/cog/blob/main/docs/yaml.md
         """
         yaml = YAML()
         yaml.preserve_quotes = True
+        yaml.indent(mapping=2, sequence=4, offset=2)
         yaml.representer.add_representer(list, list_representer)
         s = StringIO()
         yaml.dump(self.to_yaml_dict(), s)
