@@ -1,0 +1,26 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - "v*"
+  pull_request:
+
+jobs:
+  test:
+    name: "Test"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+      - name: Install cogreqs
+        run: pip install .
+      - name: Install Python dependencies
+        run: pip install -r requirements-test.txt
+      - name: Run test
+        run: pytest

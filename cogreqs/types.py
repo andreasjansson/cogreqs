@@ -44,7 +44,7 @@ class Build:
             "gpu", "set to true if your model requires a GPU", indent=2
         )
 
-        d["system_packages"] = list(self.system_packages)
+        d["system_packages"] = list(sorted(self.system_packages))
         d.yaml_set_comment_before_after_key(
             "system_packages",
             """
