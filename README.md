@@ -29,21 +29,24 @@ build:
 
   # a list of ubuntu apt packages to install
   system_packages:
-  - "ffmpeg"
-  - "libsndfile-dev"
+    - "ffmpeg"
+    - "libsndfile-dev"
 
   # python version in the form '3.8' or '3.8.12'
   python_version: "3.8"
 
   # a list of packages in the format <package-name>==<version>
   python_packages:
-  - "librosa==0.9.1"
-  - "numpy==1.22.2"
-  - "scipy==1.8.0"
-  - "torch==1.10.2"
+    - "librosa==0.9.1"
+    - "numpy==1.22.2"
+    - "scipy==1.8.0"
+    - "torch==1.10.2"
 
   # commands run after the environment is setup
   run:
+
+# predict.py defines how predictions are run on your model
+predict: "predict.py:Predictor"
 ```
 
 **NOTE:** Cogreqs outputs a predict.py that's only compatible with the `future` branch of Cog. Until that branch is merged into main, install Cog from https://github.com/replicate/cog/releases/tag/v0.1.0-alpha
