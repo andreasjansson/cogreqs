@@ -26,3 +26,6 @@ build:
       \ --init --recursive && CMAKE_PREFIX_PATH=$(pyenv prefix) DIFFVG_CUDA=1 python\
       \ setup.py install"
     - "pip install pesq==0.0.3"
+
+# predict.py defines how predictions are run on your model
+predict: "predict.py:Predictor"
