@@ -9,7 +9,7 @@ setup(
     description="Automatically construct cog.yaml from a repository",
     long_description=long_description,
     long_description_content_type='text/markdown',
-    version="0.0.4",
+    version="0.0.5",
     packages=find_packages(exclude=["test", "*.test", "*.test.*"]),
     entry_points={
         "console_scripts": [
