@@ -1,15 +1,15 @@
 from pathlib import Path
 from setuptools import setup, find_packages
 
-this_directory = Path(__file__).parent
-long_description = (this_directory / "README.md").read_text()
+cwd = Path(__file__).parent
+long_description = (cwd / "README.md").read_text()
 
 setup(
     name="cogreqs",
     description="Automatically construct cog.yaml from a repository",
     long_description=long_description,
     long_description_content_type='text/markdown',
-    version="0.0.2",
+    version="0.0.3",
     packages=find_packages(exclude=["test", "*.test", "*.test.*"]),
     entry_points={
         "console_scripts": [

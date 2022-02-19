@@ -2,6 +2,7 @@ from typing import Dict, List
 import sys
 import os
 import argparse
+import logging
 from pipreqs import pipreqs
 import yarg
 
@@ -23,6 +24,7 @@ def fetch_pip_version(package_name: str) -> str:
         pkg = yarg.get(package_name)
         return pkg.latest_release_id
     except Exception as e:
+        logging.debug(e)
         return "error-fetching-release"
 
 
@@ -116,6 +118,8 @@ def generate_files(
             print()
         print(config.to_yaml_string())
     elif config_path != "/dev/null":
+        if not os.path.isabs(config_path):
+            config_path = os.path.join(folder, config_path)
         with open(config_path, "w") as f:
             f.write(config.to_yaml_string())
 
@@ -137,6 +141,8 @@ def generate_files(
             print()
         print(predict_template)
     elif predict_path != "/dev/null":
+        if not os.path.isabs(predict_path):
+            predict_path = os.path.join(folder, predict_path)
         with open(predict_path, "w") as f:
             f.write(predict_template)
 
