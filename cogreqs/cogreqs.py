@@ -80,7 +80,7 @@ def config_from_repo(folder: str, use_gpu: bool) -> Config:
             python_find_links=[],
         ),
         image=None,
-        predict=None,
+        predict="predict.py:Predictor",
     )
 
     config = apply_heuristics(config)

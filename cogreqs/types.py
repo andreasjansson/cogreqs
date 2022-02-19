@@ -123,9 +123,12 @@ Reference: https://github.com/replicate/cog/blob/main/docs/yaml.md
 """,
         )
         if self.image is not None:
-            d["image"] = DoubleQuotedScalarString(self.image)
+            d["image"] = double_quote(self.image)
         if self.predict is not None:
-            d["predict"] = self.predict
+            d["predict"] = double_quote(self.predict)
+            d.yaml_set_comment_before_after_key(
+                "predict", "\npredict.py defines how predictions are run on your model"
+            )
         return d
 
     def to_yaml_string(self) -> str:
@@ -159,5 +162,5 @@ def list_representer(representer, data):
     rather than [].
     """
     if len(data) == 0:
-        return representer.represent_scalar('tag:yaml.org,2002:null', "")
-    return representer.represent_sequence('tag:yaml.org,2002:seq', data)
+        return representer.represent_scalar("tag:yaml.org,2002:null", "")
+    return representer.represent_sequence("tag:yaml.org,2002:seq", data)
