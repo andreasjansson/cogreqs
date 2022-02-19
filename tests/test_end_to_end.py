@@ -5,10 +5,10 @@ from pathlib import Path
 
 def test_end_to_end(script_runner, mocker, request):
     package_versions = {
-            "librosa": "0.9.1",
-            "pillow": "9.0.1",
-            "pesq": "0.0.3",
-        }
+        "librosa": "0.9.1",
+        "pillow": "9.0.1",
+        "pesq": "0.0.3",
+    }
     mock_release = namedtuple("MockRelease", ["latest_release_id"])
     mocker.patch(
         "yarg.get",

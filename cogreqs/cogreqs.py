@@ -161,7 +161,9 @@ This is an experimental alternative to cog init"""
     )
     parser.add_argument("-g", "--gpu", action="store_true", help="Use GPU")
     parser.add_argument(
-        "--config-path", default="cog.yaml", help="Config file path (default cog.yaml). --config-path=- will write to stdout, --config-path=/dev/null surpresses config file output"
+        "--config-path",
+        default="cog.yaml",
+        help="Config file path (default cog.yaml). --config-path=- will write to stdout, --config-path=/dev/null surpresses config file output",
     )
     parser.add_argument(
         "--predict-path",

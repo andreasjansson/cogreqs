@@ -8,7 +8,7 @@ setup(
     name="cogreqs",
     description="Automatically construct cog.yaml from a repository",
     long_description=long_description,
-    long_description_content_type='text/markdown',
+    long_description_content_type="text/markdown",
     version="0.0.6",
     url="https://github.com/andreasjansson/cogreqs",
     packages=find_packages(exclude=["test", "*.test", "*.test.*"]),
